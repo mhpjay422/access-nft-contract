@@ -17,6 +17,7 @@ export default function GetNFT() {
     const provider = new ethers.providers.JsonRpcProvider();
     const tokenContract = new ethers.Contract(contractAddress, abi, provider);
     const tokenUri = await tokenContract.tokenURI(tokenId);
+    // Is accessing tokenURI like this universal among contracts?
     const meta = await axios.get(tokenUri);
 
     return (
